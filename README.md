@@ -18,8 +18,20 @@ It demonstrates object-oriented design, GUI development, and basic financial ope
 - *(Planned)* SQLite/MySQL for persistent data  
 
 ##  How to Run
-```bash
-git clone https://github.com/<your-username>/atm-swing.git
-cd atm-swing
-mvn clean package
-java -jar target/atm-swing-1.0.jar
+### Option 1: Run in IntelliJ IDEA (Recommended)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MariTurchyn/atm-swing.git
+2. Open the project in IntelliJ IDEA Community Edition (free).
+3. IntelliJ will automatically detect Maven and download dependencies.
+4. Run the Main class (click the green button).
+
+### Option 2: Run from Command Line (requires Maven installed)
+
+1.Clone the repository:
+  git clone https://github.com/MariTurchyn/atm-swing.git
+  cd atm-swing
+2. Build the project:
+  mvn clean package
+3. Run the JAR:
+  java -jar target/atm-swing-1.0-SNAPSHOT.jar
