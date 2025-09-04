@@ -4,7 +4,7 @@ A simple desktop **ATM system** built with **Java Swing** and **Maven**.
 It demonstrates object-oriented design, GUI development, and basic financial operations like login, deposits, withdrawals, and balance checks.
 
 ## Features
-- Login with card number & PIN  
+- Login with card number & PIN  ##card number: 1111, PIN: 1234
 - Check account balance  
 - Deposit and withdraw money (with error handling)  
 - Logout for secure session  
