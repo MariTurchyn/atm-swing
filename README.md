@@ -28,10 +28,12 @@ It demonstrates object-oriented design, GUI development, and basic financial ope
 
 ### Option 2: Run from Command Line (requires Maven installed)
 
-1.Clone the repository:
+1. Clone the repository:
   git clone https://github.com/MariTurchyn/atm-swing.git
   cd atm-swing
+
 2. Build the project:
   mvn clean package
+
 3. Run the JAR:
   java -jar target/atm-swing-1.0-SNAPSHOT.jar
