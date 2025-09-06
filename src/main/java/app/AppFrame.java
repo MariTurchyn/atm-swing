@@ -12,7 +12,19 @@ public class AppFrame extends JFrame {
     private final JPanel root = new JPanel(layout);
 
     public AppFrame() {
-        FlatLightLaf.setup();          // modern Swing look
+        // in constructor, right at the top:
+        com.formdev.flatlaf.themes.FlatMacLightLaf.setup(); // or FlatLightLaf/FlatDarculaLaf
+
+        // Global UI tuning:
+        UIManager.put( "Component.arc", 16 );           // rounded corners
+        UIManager.put( "Button.arc", 20 );
+        UIManager.put( "TextComponent.arc", 14 );
+        UIManager.put( "Component.focusWidth", 1 );
+        UIManager.put( "Component.innerFocusWidth", 0 );
+        UIManager.put( "Button.minimumWidth", 120 );
+        UIManager.put( "ScrollBar.thumbArc", 999 );     // pill scrollbars
+        UIManager.put( "ScrollBar.track", new Color(245,245,247) );          // modern Swing look
+
 
         setTitle("ATM");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

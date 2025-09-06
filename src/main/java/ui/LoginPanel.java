@@ -22,13 +22,26 @@ public class LoginPanel extends JPanel {
 
         // labels and fields for card and pin
         JLabel cardLabel = new JLabel("Card Number");
+        cardLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        cardLabel.setForeground(Color.DARK_GRAY);
+
         JTextField cardField = new JTextField();
+        cardField.setBackground(new Color(40, 40, 40));
+        cardField.setForeground(Color.WHITE);
 
         JLabel pinLabel = new JLabel("PIN:");
+        pinLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        pinLabel.setForeground(Color.DARK_GRAY);
+
         JPasswordField pinField = new JPasswordField();
+        pinField.setBackground(new Color(40, 40, 40));
+        pinField.setForeground(Color.WHITE);
 
         // login button
         JButton loginButton = new JButton("Login");
+        loginButton.setBackground(new Color(0, 102, 204)); // blue button
+        loginButton.setForeground(Color.WHITE);
+        loginButton.setFont(new Font("Arial", Font.BOLD, 18));
 
         // add components into the form
         form.add(cardLabel);
@@ -64,5 +77,6 @@ public class LoginPanel extends JPanel {
                 );
             }
         });
+
     }
 }
