@@ -31,13 +31,23 @@ public class AppFrame extends JFrame {
         setSize(420, 600);
         setLocationRelativeTo(null);   // center window
 
+        ui.BackgroundPanel bg = new ui.BackgroundPanel("/atm-bg.jpg");
+        setContentPane(bg);
+
+        root.setOpaque(false);
+        bg.add(root);
+
         // Create the two screens and register callbacks
         var login = new LoginPanel(this::onLoginSuccess);
+        login.setOpaque(false); // let background show through
+
         var menu  = new MenuPanel(this::onLogout);
+        menu.setOpaque(false);  // let background show through
+
 
         root.add(login, "login");
+
         root.add(menu,  "menu");
-        setContentPane(root);
 
         showLogin();
     }
