@@ -37,3 +37,11 @@ It demonstrates object-oriented design, GUI development, and basic financial ope
 
 3. Run the JAR:
   java -jar target/atm-swing-1.0-SNAPSHOT.jar
+
+
+<img width="893" height="633" alt="image" src="https://github.com/user-attachments/assets/a4899ce7-6ae9-47a8-af1a-c0ce9765740d" />
+
+<img width="993" height="653" alt="image" src="https://github.com/user-attachments/assets/7f585b88-8017-45cd-9aa8-906744b23196" />
+
+<img width="496" height="727" alt="image" src="https://github.com/user-attachments/assets/9fa43fc6-0dfa-4b9e-b0a2-c345e0302d66" />
+
