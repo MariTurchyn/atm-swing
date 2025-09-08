@@ -19,6 +19,7 @@ public class MenuPanel extends JPanel {
 
         // grid layout: 5 rows, 1 column
         setLayout(new GridLayout(5, 1, 8, 8));
+        setOpaque(false);
 
         // label that shows current balance
         JLabel balanceLabel = new JLabel(

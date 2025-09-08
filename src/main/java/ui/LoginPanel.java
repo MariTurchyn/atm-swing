@@ -16,9 +16,12 @@ public class LoginPanel extends JPanel {
 
         // use BorderLayout for main layout
         setLayout(new BorderLayout());
+        setOpaque(false);
+
 
         // create form with grid: 3 rows, 2 columns
         JPanel form = new JPanel(new GridLayout(3, 2, 8, 8));
+        form.setOpaque(false);
 
         // labels and fields for card and pin
         JLabel cardLabel = new JLabel("Card Number");
@@ -26,21 +29,20 @@ public class LoginPanel extends JPanel {
         cardLabel.setForeground(Color.DARK_GRAY);
 
         JTextField cardField = new JTextField();
-        cardField.setBackground(new Color(40, 40, 40));
-        cardField.setForeground(Color.WHITE);
+        cardField.setBackground(Color.WHITE);
+        cardField.setForeground(Color.DARK_GRAY);
 
         JLabel pinLabel = new JLabel("PIN:");
         pinLabel.setFont(new Font("Arial", Font.BOLD, 18));
         pinLabel.setForeground(Color.DARK_GRAY);
 
         JPasswordField pinField = new JPasswordField();
-        pinField.setBackground(new Color(40, 40, 40));
-        pinField.setForeground(Color.WHITE);
-
+        cardField.setBackground(Color.WHITE);
+        cardField.setForeground(Color.DARK_GRAY);
         // login button
         JButton loginButton = new JButton("Login");
-        loginButton.setBackground(new Color(0, 102, 204)); // blue button
-        loginButton.setForeground(Color.WHITE);
+        loginButton.setBackground(Color.WHITE);
+        loginButton.setForeground(Color.DARK_GRAY);
         loginButton.setFont(new Font("Arial", Font.BOLD, 18));
 
         // add components into the form
@@ -54,6 +56,7 @@ public class LoginPanel extends JPanel {
         // add padding around form
         JPanel padding = new JPanel(new BorderLayout());
         padding.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        padding.setOpaque(false);
         padding.add(form, BorderLayout.CENTER);
 
         // add everything to panel
