@@ -4,43 +4,52 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MenuPanel extends JPanel {
-    // interface for callback when user logs out
+    // Interface for handling logout events (callback to AppFrame)
     public interface LogoutHandler {
         void onLogout();
     }
 
-    private final LogoutHandler onLogout;
-
-    // account balance (starts with 500 for demo)
-    private double balance = 500.00;
+    private final LogoutHandler onLogout; // callback for logout
+    private double balance = 500.00;       // account balance (demo value)
 
     public MenuPanel(LogoutHandler onLogout) {
         this.onLogout = onLogout;
 
-        // grid layout: 5 rows, 1 column
-        setLayout(new GridLayout(5, 1, 8, 8));
-        setOpaque(false);
+        // Use BorderLayout so we can place welcome text at the top
+        // and buttons in the center
+        setLayout(new BorderLayout());
+        setOpaque(false); // transparent background (so BackgroundPanel shows through)
 
-        // label that shows current balance
-        JLabel balanceLabel = new JLabel(
-                "Balance: $" + String.format("%.2f", balance),
-                SwingConstants.CENTER
-        );
+        // Welcome label at the top
+        JLabel welcomeLabel = new JLabel("Welcome!", SwingConstants.CENTER);
+        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 22));
+        welcomeLabel.setForeground(Color.DARK_GRAY);
+        welcomeLabel.setBorder(BorderFactory.createEmptyBorder(30, 10, 30, 10));
+        // adds spacing around the label
 
-        // buttons for each action
+        // Panel with buttons (GridLayout: 4 rows, 1 column, with spacing)
+        JPanel buttonsPanel = new JPanel(new GridLayout(4, 1, 8, 8));
+        buttonsPanel.setOpaque(false); // transparent as well
+
+        // Create ATM action buttons
         JButton checkButton = new JButton("Check Balance");
         JButton depositButton = new JButton("Deposit");
         JButton withdrawButton = new JButton("Withdraw");
         JButton logoutButton = new JButton("Logout");
 
-        // add all components to the panel
-        add(balanceLabel);
-        add(checkButton);
-        add(depositButton);
-        add(withdrawButton);
-        add(logoutButton);
+        // Add buttons into the grid
+        buttonsPanel.add(checkButton);
+        buttonsPanel.add(depositButton);
+        buttonsPanel.add(withdrawButton);
+        buttonsPanel.add(logoutButton);
 
-        // check balance button
+        // Add components to the panel
+        add(welcomeLabel, BorderLayout.NORTH);   // welcome text at the top
+        add(buttonsPanel, BorderLayout.CENTER);  // buttons in the middle
+
+        //Button logic
+
+        // Show balance in a dialog
         checkButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(
                     this,
@@ -48,10 +57,10 @@ public class MenuPanel extends JPanel {
             );
         });
 
-        // deposit button
+        // Deposit money: prompt user for amount, validate, update balance
         depositButton.addActionListener(e -> {
             String text = JOptionPane.showInputDialog(this, "Enter amount to deposit:");
-            if (text == null) return; // cancel pressed
+            if (text == null) return; // user pressed cancel
             try {
                 double amount = Double.parseDouble(text);
                 if (amount <= 0) {
@@ -59,16 +68,15 @@ public class MenuPanel extends JPanel {
                     return;
                 }
                 balance += amount;
-                balanceLabel.setText("Balance: $" + String.format("%.2f", balance));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Invalid Number");
             }
         });
 
-        // withdraw button
+        // Withdraw money: prompt user for amount, validate, check funds
         withdrawButton.addActionListener(e -> {
             String text = JOptionPane.showInputDialog(this, "Enter amount to withdraw:");
-            if (text == null) return; // cancel pressed
+            if (text == null) return; // user pressed cancel
             try {
                 double amount = Double.parseDouble(text);
                 if (amount <= 0) {
@@ -80,13 +88,13 @@ public class MenuPanel extends JPanel {
                     return;
                 }
                 balance -= amount;
-                balanceLabel.setText("Balance: $" + String.format("%.2f", balance));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Invalid Number");
             }
         });
 
-        // logout button (calls callback to AppFrame)
+        // Logout: call back to AppFrame to show login screen again
         logoutButton.addActionListener(e -> onLogout.onLogout());
     }
 }
+
